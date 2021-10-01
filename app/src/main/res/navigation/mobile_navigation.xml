@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.company.indiafightscovid.view.fragments.HomeFragment"
+        android:label="@string/title_covid_19"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_vaccinations"
+        android:name="com.company.indiafightscovid.view.fragments.VaccinationsFragment"
+        android:label="Vaccinations"
+        tools:layout="@layout/vaccinations_fragment"/>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.company.indiafightscovid.view.fragments.NewsFragment"
+        android:label="@string/title_news"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/navigation_suggestion"
+        android:name="com.company.indiafightscovid.view.fragments.SuggestionsFragment"
+        android:label="@string/title_suggestions"
+        tools:layout="@layout/fragment_suggestions"/>
+
+    <fragment
+        android:id="@+id/navigation_about"
+        android:name="com.company.indiafightscovid.view.fragments.AboutFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about"/>
+</navigation>

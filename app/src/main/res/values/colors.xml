@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="primaryColor">#62827d</color>
+    <color name="primaryLightColor">#90b2ac</color>
+    <color name="primaryDarkColor">#375551</color>
+    <color name="secondaryColor">#63837d</color>
+    <color name="secondaryLightColor">#91b3ac</color>
+    <color name="secondaryDarkColor">#385651</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#000000</color>
+    <color name="splash_background_color">#62827D</color>
+
+    <color name="login_screen_text_view_color">#000000</color>
+    <color name="login_with_google_background">#FFFFFF</color>
+
+
+    <color name="item_covid_cases_layout_text_color">#000000</color>
+    <color name="covid_cases_text_color">#FF0000</color>
+    <color name="recovered_text_color">#008000</color>
+    <color name="item_covid_cases_background_tint">#FFFFFF</color>
+    <color name="state_name_background">#90b2ac</color>
+
+    <color name="quote_background">#90b2ac</color>
+    <color name="quote_color">#000000</color>
+    <color name="covid_cases_background_fragment_home">#ADD8E6</color>
+    <color name="default_stroke">#375551</color>
+    <color name="covid_cases_and_recovered_text_color_fragment_home">#62827d</color>
+    <color name="recovered_background_fragment_home">#32cd32</color>
+    <color name="death_background_color_fragment_home">#FFA500</color>
+    <color name="active_cases_background_color_fragment_home">#62827d</color>
+    <color name="default_color_black_in_light_mode">#000000</color>
+    <color name="helpline_background_color">#90b2ac</color>
+
+    <color name="radio_group_tab_background_color">#ECEDEF</color>
+    <color name="radio_button_color">@color/primaryColor</color>
+    <color name="radio_button_text_color_on_state_checked_true">#FFFFFF</color>
+    <color name="radio_button_text_color_on_state_checked_false">#ADB3BE</color>
+
+
+    <color name="news_text_color">@color/primaryColor</color>
+    <color name="item_news_background_tint">#FFFFFF</color>
+
+    <color name="post_button_background_tint">@color/primaryDarkColor</color>
+    <color name="post_button_text_color">@color/primaryLightColor</color>
+    <color name="edit_text_text_color">#000000</color>
+    <color name="item_suggestion_background_tint">#FFFFFF</color>
+    <color name="item_suggestion_text_color">#000000</color>
+
+
+    <color name="vacccination_data_color">#008000</color>
+    <color name="vaccination_name_of_state">#696969</color>
+    <color name="vaccinations_all_india_background_color">#FFFFFF</color>
+
+</resources>

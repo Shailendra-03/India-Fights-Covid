@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.fragments.HomeFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <RadioGroup
+            android:id="@+id/rgCases"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/drawable_radio_group_tab_background"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <RadioButton
+                android:id="@+id/rb_cases_in_india"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@drawable/drawable_tab_selector"
+                android:checked="true"
+                android:text="@string/home_radio_button_1_text"
+                android:gravity="center"
+                android:textColor="@drawable/drawable_tab_text_color_selector"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:button="@null"
+                />
+
+            <RadioButton
+                android:id="@+id/rbStateWiseData"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@drawable/drawable_tab_selector"
+                android:checked="false"
+                android:text="@string/Home_radio_button_second_text"
+                android:gravity="center"
+                android:textColor="@drawable/drawable_tab_text_color_selector"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:button="@null"
+                />
+
+        </RadioGroup>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home_covid_cases"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="5dp"
+            android:clipToPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/rgCases"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progress="50"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_all_india_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgCases"
+            >
+
+
+            <LinearLayout
+                android:id="@+id/ll_introduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="6dp"
+                android:paddingBottom="15dp"
+                android:background="@color/quote_background"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/ll_all_total_recovered">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_quote_text"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/quote_color"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_quote_by_text"
+                    android:textSize="16sp"
+                    android:gravity="end"
+                    android:textColor="@color/quote_color"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_all_total_cases"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ll_all_total_recovered"
+                app:layout_constraintTop_toBottomOf="@id/ll_introduction"
+                android:layout_margin="5dp"
+                android:background="@drawable/drawable_cases_background"
+                >
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_cases_text"
+                    android:textColor="@color/covid_cases_and_recovered_text_color_fragment_home"/>
+                <TextView
+                    android:id="@+id/tv_all_india_total_cases"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/covid_cases_and_recovered_text_color_fragment_home"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_all_total_recovered"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/ll_all_total_cases"
+                app:layout_constraintTop_toBottomOf="@id/ll_introduction"
+                app:layout_constraintEnd_toStartOf="@id/ll_all_total_deaths"
+                app:layout_constraintBottom_toTopOf="@id/ll_all_today_recovered"
+                android:layout_margin="5dp"
+                android:background="@drawable/drawable_recovered_background"
+                >
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_recovered_text"
+                    android:textColor="@color/covid_cases_and_recovered_text_color_fragment_home"/>
+                <TextView
+                    android:id="@+id/tv_all_india_total_recovered"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/covid_cases_and_recovered_text_color_fragment_home"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_all_total_deaths"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/ll_all_total_recovered"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_introduction"
+                app:layout_constraintBottom_toTopOf="@id/ll_all_today_recovered"
+                android:layout_margin="5dp"
+                android:background="@drawable/drawable_death_background"
+                >
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_deaths_text"
+                    android:textColor="@color/covid_cases_and_recovered_text_color_fragment_home"/>
+                <TextView
+                    android:id="@+id/tv_all_india_total_deaths"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/covid_cases_and_recovered_text_color_fragment_home"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_all_today_cases"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="3dp"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/ll_all_total_cases"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ll_all_today_recovered"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/drawable_cases_background"
+                >
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_cases_text"
+                    android:textColor="@color/covid_cases_and_recovered_text_color_fragment_home"/>
+                <TextView
+                    android:id="@+id/tv_all_india_new_cases"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/covid_cases_and_recovered_text_color_fragment_home"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_all_today_recovered"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="3dp"
+                android:gravity="center"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/drawable_recovered_background"
+                app:layout_constraintTop_toBottomOf="@id/ll_all_total_deaths"
+                app:layout_constraintStart_toEndOf="@id/ll_all_today_cases"
+                app:layout_constraintEnd_toEndOf="parent"
+                >
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_recovered_text"
+                    android:textColor="@color/covid_cases_and_recovered_text_color_fragment_home"/>
+                <TextView
+                    android:id="@+id/tv_all_india_new_recovered"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/covid_cases_and_recovered_text_color_fragment_home"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_all_total_active_cases"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:gravity="center"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/drawable_grey_rectangle_background"
+                app:layout_constraintTop_toBottomOf="@id/ll_all_today_cases"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                >
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="@string/active_cases_text"/>
+                <TextView
+                    android:id="@+id/tv_all_india_active_cases"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_helpline_numbers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/default_color_black_in_light_mode"
+                app:layout_constraintTop_toBottomOf="@id/ll_all_total_active_cases"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/helpline_numbers_text"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_health_ministry_helpline"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/drawable_helpline_background"
+                app:layout_constraintTop_toBottomOf="@id/tv_helpline_numbers"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_helpline_health_ministry"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/call_button_image_content_description"
+                    android:src="@drawable/ic_baseline_call_24"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:textColor="@color/default_color_black_in_light_mode"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:id="@+id/tv_ministry_helpline_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/health_ministry_helpline_text"
+                    app:layout_constraintStart_toEndOf="@id/iv_helpline_health_ministry"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tv_ministry_helpline_number"/>
+
+                <TextView
+                    android:id="@+id/tv_ministry_helpline_number"
+                    android:textColor="@color/default_color_black_in_light_mode"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:text="@string/health_ministry_helpline_number_text"
+                    app:layout_constraintTop_toBottomOf="@id/tv_ministry_helpline_name"
+                    app:layout_constraintStart_toEndOf="@id/iv_helpline_health_ministry"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_senior_citizens_helpline"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/drawable_helpline_background"
+                app:layout_constraintTop_toBottomOf="@id/cl_health_ministry_helpline"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_helpline_senior_citizens"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/call_button_image_content_description"
+                    android:src="@drawable/ic_baseline_call_24"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:textColor="@color/default_color_black_in_light_mode"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:id="@+id/tv_senior_citizen_helpline_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/senior_citizens_helpline_text"
+                    app:layout_constraintStart_toEndOf="@id/iv_helpline_senior_citizens"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tv_senior_citizen_helpline_number"/>
+
+                <TextView
+                    android:id="@+id/tv_senior_citizen_helpline_number"
+                    android:textColor="@color/default_color_black_in_light_mode"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="0dp"
+                    android:gravity="start"
+                    android:layout_height="wrap_content"
+                    android:text="@string/senior_citizens_helpline_number_text"
+                    app:layout_constraintTop_toBottomOf="@id/tv_senior_citizen_helpline_name"
+                    app:layout_constraintStart_toEndOf="@id/iv_helpline_senior_citizens"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_mental_health_helpline"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/drawable_helpline_background"
+                app:layout_constraintTop_toBottomOf="@id/cl_senior_citizens_helpline"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_helpline_mental_health"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/call_button_image_content_description"
+                    android:src="@drawable/ic_baseline_call_24"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:textColor="@color/default_color_black_in_light_mode"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:id="@+id/tv_mental_health_helpline_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mental_health_helpline_text"
+                    app:layout_constraintStart_toEndOf="@id/iv_helpline_mental_health"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tv_mental_health_helpline_number"/>
+
+                <TextView
+                    android:id="@+id/tv_mental_health_helpline_number"
+                    android:textColor="@color/default_color_black_in_light_mode"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="0dp"
+                    android:gravity="start"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mental_health_helpline_number_text"
+                    app:layout_constraintTop_toBottomOf="@id/tv_mental_health_helpline_name"
+                    app:layout_constraintStart_toEndOf="@id/iv_helpline_mental_health"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_ayush_counselling_helpline"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/drawable_helpline_background"
+                app:layout_constraintTop_toBottomOf="@id/cl_mental_health_helpline"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_helpline_ayush_counselling"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/ic_baseline_call_24"
+                    android:contentDescription="@string/call_button_image_content_description"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:textColor="@color/default_color_black_in_light_mode"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:id="@+id/tv_ayush_counselling_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ayush_covid_19_counselling_helpline_text"
+                    app:layout_constraintStart_toEndOf="@id/iv_helpline_ayush_counselling"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tv_ayush_counselling_number"/>
+
+                <TextView
+                    android:id="@+id/tv_ayush_counselling_number"
+                    android:textColor="@color/default_color_black_in_light_mode"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="0dp"
+                    android:gravity="start"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ayush_covid_19_counselling_helpline_number_text"
+                    app:layout_constraintTop_toBottomOf="@id/tv_ayush_counselling_name"
+                    app:layout_constraintStart_toEndOf="@id/iv_helpline_ayush_counselling"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

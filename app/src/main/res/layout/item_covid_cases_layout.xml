@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginTop="3dp"
+    android:backgroundTint="@color/item_covid_cases_background_tint">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/tv_nameOfState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="NameOfState"
+            android:paddingStart="5dp"
+            android:textStyle="bold"
+            android:textColor="@color/item_covid_cases_layout_text_color"
+            android:background="@color/state_name_background"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry" />
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:paddingStart="5dp"
+            android:id="@+id/ll_total_cases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/tv_nameOfState"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="RtlSymmetry">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_cases_text"
+                android:textSize="15sp"
+                android:textColor="@color/item_covid_cases_layout_text_color"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_total_cases_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="TotalCasesNumber"
+                android:textSize="15sp"
+                android:textColor="@color/covid_cases_text_color"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_total_recovered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:gravity="start"
+            app:layout_constraintTop_toBottomOf="@id/tv_nameOfState"
+            app:layout_constraintStart_toEndOf="@id/ll_total_cases"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="RtlSymmetry">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_recovered_text"
+                android:textSize="15sp"
+                android:textColor="@color/item_covid_cases_layout_text_color"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_total_recovered_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="TotalRecoveredNumber"
+                android:textSize="15sp"
+                android:textColor="@color/recovered_text_color"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/ll_today_cases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:gravity="start"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/ll_total_cases"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="RtlSymmetry">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/new_cases_text"
+                android:textSize="15sp"
+                android:textColor="@color/item_covid_cases_layout_text_color"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_today_cases_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="NewCasesNumber"
+                android:textSize="15sp"
+                android:textColor="@color/covid_cases_text_color"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_today_recovered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:gravity="start"
+            app:layout_constraintTop_toBottomOf="@id/ll_total_recovered"
+            app:layout_constraintStart_toEndOf="@id/ll_today_cases"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="RtlSymmetry">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/new_recovered_text"
+                android:textSize="15sp"
+                android:textColor="@color/item_covid_cases_layout_text_color"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_today_recovered_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="NewRecoveredNumber"
+                android:textSize="15sp"
+                android:textColor="@color/recovered_text_color"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            app:layout_constraintTop_toBottomOf="@id/ll_today_cases"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="2dp"
+            android:background="@color/primaryLightColor"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

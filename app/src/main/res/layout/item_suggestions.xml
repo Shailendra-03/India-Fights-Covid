@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_marginTop="5dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:backgroundTint="@color/item_suggestion_background_tint"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        >
+
+        <ImageView
+            android:id="@+id/iv_userImage"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_unknown_person_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_suggestionsText"
+            android:contentDescription="@string/user_image_content_description" />
+
+        <LinearLayout
+            android:id="@+id/ll_name_and_time"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/iv_userImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_suggestionsText">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:textStyle="bold"
+                android:textColor="@color/item_suggestion_text_color"
+                android:textSize="17sp"
+                android:gravity="bottom|start"
+                tools:text="Name"/>
+
+            <TextView
+                android:id="@+id/tv_created_at"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="start"
+                android:textColor="@color/item_suggestion_text_color"
+                android:textSize="14sp"
+                tools:text="Time"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_suggestionsText"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            tools:text="Here is The Suggestions"
+            android:textColor="@color/item_suggestion_text_color"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_name_and_time"
+            app:layout_constraintBottom_toTopOf="@id/ll_likes_and_dislikes"/>
+
+        <LinearLayout
+            android:id="@+id/ll_likes_and_dislikes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tv_suggestionsText">
+
+            <ImageView
+                android:id="@+id/iv_liked"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_not_liked"
+                android:scaleType="fitXY"
+                android:contentDescription="@string/like_button_content_description" />
+
+            <TextView
+                android:id="@+id/tv_liked_count"
+                android:layout_marginStart="2dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:gravity="center"
+                android:text="@string/default_liked_disliked_number_text"
+                android:textColor="@color/item_suggestion_text_color"/>
+
+            <ImageView
+                android:id="@+id/iv_disliked"
+                android:layout_marginStart="10dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_not_disliked"
+                android:scaleType="fitXY"
+                android:contentDescription="@string/disliked_button_image_content_description" />
+
+            <TextView
+                android:id="@+id/tv_disliked_count"
+                android:layout_marginStart="2dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:gravity="center"
+                android:text="@string/default_liked_disliked_number_text"
+                android:textColor="@color/item_suggestion_text_color"/>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+
